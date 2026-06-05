@@ -10,7 +10,25 @@ The toolkit is designed around a simple flow:
 4. Review the generated CSV outputs and action the highest-value recommendations.
 
 ---
+## Supported Cost Optimisation Modules
 
+The toolkit currently supports the following cost optimisation modules:
+
+| Prefix | Service / Area | Script / Module | What It Analyses |
+|---|---|---|---|
+| `00` | Azure Cost Data Collection | `00_azure_cost_data_collector_v1.sh` | Collects Azure cost data, Azure Resource Graph inventory, Azure Advisor cost recommendations, and optimisation signals across subscriptions. |
+| `01` | Azure Virtual Machines | `01_vm_cost_optimizer_v9.sh` | Analyses VM cost, CPU utilisation, right-sizing opportunities, shutdown candidates, and Reserved Instance / Savings Plan opportunities. |
+| `02` | Azure Managed Disks and Snapshots | Disk optimisation script | Identifies unattached disks, underused disks, premium disk downgrade opportunities, and snapshot cleanup candidates. |
+| `03` | Azure Databricks | `03_databricks_optimize_collector_v3.sh` | Analyses Databricks clusters, jobs/workflows, SQL warehouses, instance pools, DBU usage, tagging gaps, all-purpose cluster usage, long-running jobs, failed jobs, and compute efficiency issues. |
+
+### Current Coverage Summary
+
+- **Azure cost baseline and inventory collection**
+- **Virtual Machine cost and utilisation optimisation**
+- **Managed disk and snapshot optimisation**
+- **Azure Databricks compute, pool, job, workflow, and SQL warehouse optimisation**
+
+All scripts are designed to run in **read-only assessment mode** and generate CSV-based findings and recommendations for cost optimisation review.
 ## Repository Structure
 
 ```text
